@@ -16,7 +16,7 @@ public class CartController {
         this.cartService = cartService;
     }
 
-    // 👉 Add to cart
+
     @PostMapping("/add")
     public String addToCart(@RequestParam Long userId,
                             @RequestParam Long productId,
@@ -24,13 +24,11 @@ public class CartController {
         return cartService.addToCart(userId, productId, quantity);
     }
 
-    // 👉 Get all cart items of user
     @GetMapping("/get")
     public List<Cart> getCart(@RequestParam Long userId) {
         return cartService.getUserCart(userId);
     }
 
-    // 👉 Remove item from cart
     @DeleteMapping("/remove")
     public String removeFromCart(@RequestParam Long userId,
                                  @RequestParam Long productId) {

@@ -31,6 +31,7 @@ public class CartServiceImpl implements CartService{
             if(product.getStock()<newQuantity){
                 throw new RuntimeException("Stock not available");
             }
+            cart.setQuantity(newQuantity);
             BigDecimal total = product.getPrice().multiply(BigDecimal.valueOf(newQuantity));
             cart.setTotalPrice(total);
             cartRepository.save(cart);
